@@ -14,6 +14,15 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
         </Routes>
+        <Routes>
+          <Route exact path="/" element={<Login />}></Route>
+        </Routes>
+        <Routes>
+          <Route exact path="/" element={<Destination />}></Route>
+        </Routes>
+        <Routes>
+          <Route exact path="/" element={<Payment />}></Route>
+        </Routes>
       </Router>
     </div>
   );
