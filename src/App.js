@@ -18,6 +18,9 @@ function App() {
           <Route exact path="/" element={<Login />}></Route>
         </Routes>
         <Routes>
+          <Route exact path="/" element={<Login />}></Route>
+        </Routes>
+        <Routes>
           <Route exact path="/" element={<Destination />}></Route>
         </Routes>
         <Routes>
