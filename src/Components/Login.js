@@ -52,9 +52,9 @@ export default function Login() {
                         <form action="" class="form signupjs">
                             <ul>
                                 <li><input type="text" placeholder="Name" required /></li>
-                                <li><input type="number" placeholder="Mobile No" required /></li>
+                                <li><input type="number" placeholder="Mobile No." required /></li>
                                 <li><input type="text" placeholder="Address" required /></li>
-                                <li><input type="email" placeholder="Email Address" required /></li>
+                                <li><input type="email" placeholder="Email" required /></li>
                                 <li><input type="text" placeholder="Username" required /></li>
                                 <li><input type="password" placeholder="Password" required /></li>
                                 <li><input type="password" placeholder="Re-enter Password" required /></li>

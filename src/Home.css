@@ -1,8 +1,8 @@
 body{
-	background: #49274A !important;
+	background: #132A13;
 	margin: 0;
 	padding: 0;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 html {
@@ -16,35 +16,38 @@ section{
 .nav_bar{
 	position: fixed;
 	top: 0;right: 0;left: 0;
-	background: #94618E;
+	background: #90A955;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	height: 80px;
 	z-index: 2;
+	box-shadow: 0 0 15px #ECF39E;
 }
 .logo{
 	margin-left: 25px;
-	color: white;
 	font-family: "Bauhaus 93";
 	/* font-size: 12px; */
 }
 .logo h1{
-	color: #f8eee7;
+	color: #132A13;
+	text-shadow: 2px 3px #ECF39E;
 	font-size: 40px;
-	font-weight: lighter;
 }
-
-/* .nav{
-	margin-left: 15px;
-} */
 
 .nav a{
 	text-decoration: none;
-	color: white;
+	color: #132A13;
 	transition: 0.3s ease;
-	margin-left: 50px;
+	margin-left: 45px;
+	font-weight: bold;
 	font-size: 20px;
+}
+
+.nav a:hover {
+	text-decoration: underline;
+	color: #ECF39E;
+	transition: none !important;
 }
 
 .book{
@@ -52,18 +55,20 @@ section{
 	margin-right: 30px;
 }
 .booknow{
-	width: 130px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 15px;
 	height: 50px;
-	background: transparent;
-	border: 1px solid #f4decb;
+	padding: 0 10px;
+	background: #132A13;
+	border: 1px solid #ECF39E;
 	border-radius: 30px;
-	color: white;
+	color: #ECF39E;
 	cursor: pointer !important;
 }
 
 .booknow:hover{
-	background: #f8eee7;
-	color: #49274A;
+	background: #ECF39E;
+	color: #132A13;
 	transition: all 0.2s ease-in-out;
 }
 /* navbar ends */
@@ -88,12 +93,12 @@ section{
 
 span{
 	font-weight: bolder;
-	color: #f8eee7;
+	color: #ECF39E;
 	font-size: 20px;
 	text-align: center;
 }
 h1{
-	color: #f8eee7;
+	color: #ECF39E;
 	font-weight: bolder;
 	font-size: 30px;
 }
@@ -102,15 +107,15 @@ h1{
 	width: 130px;
 	height: 50px;
 	background: transparent;
-	border: 1px solid #f8eee7;
+	border: 1px solid #ECF39E;
 	border-radius: 30px;
-	color: #f8eee7;
+	color: #ECF39E;
 	font-weight: bolder;
 }
 
 .btni:hover{
-	background: #f8eee7;
-	color: #49274A;
+	background: #ECF39E;
+	color: #132A13;
 	transition: all 0.2s ease-in-out;
 }
 
@@ -125,7 +130,7 @@ h1{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: #f4decb;
+	background: #ECF39E;
 	box-shadow: 4px 4px rgba(17, 17, 17, 0.2);
 }
 
@@ -141,52 +146,54 @@ form{
 
 .inputBox span{
 	font-size: 15px;
-	color: #49274A;
+	color: #132A13;
 	/* margin-left: 10px; */
 }
 
 input{
 	background: transparent;
-	border: 1px solid #49274A;
+	border: 1px solid #132A13;
 	height: 30px;
 	border-radius: 20px;
 	font-size: 13px;
 	width: 210px;
 	margin-top: 10px;
 	padding-left: 10px;
-	color: #f4decb;
+	color: #ECF39E;
 	
 }
 
 input::placeholder {
-	color: #f4decb;
+	color: #ECF39E;
 	opacity: 0.7;
 }
 
 
 .btn{
-	
 	margin-left: 20px;
 }
+
 .forminputs{
-	color: #49274A;
+	color: #132A13;
 }
 
 .btnf{
-	width: 130px;
+	width: 120px;
 	height: 50px;
 	margin: auto;
 	margin-left: 30px;
 	background: transparent;
-	border: 1px solid #94618E;
+	border: 1px solid #132A13;
 	border-radius: 30px;
-	color: #49274A;
+	color: #132A13;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 18px;
 	font-weight: bolder;
 }
 
 .btnf:hover{
-	background: #49274A;
-	color: #f8eee7;
+	background: #132A13;
+	color: #ECF39E;
 	transition: all 0.2s ease-in-out;
 }
 /*book form section ends*/
@@ -218,30 +225,30 @@ input::placeholder {
 
 .aContent span{
 	font-size: 20px;
-	font-family: Calibri;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .aContent h3{
 	margin-top: 0;
 	font-size: 50px;
-	font-family: Calibri;
-	color: #f8eee7;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	color: #ECF39E;
 }
 
 .btnv{
 	width: 150px;
 	height: 50px;
 	background: transparent;
-	border: 1px solid #f4decb;
+	border: 1px solid #ECF39E;
 	border-radius: 30px;
-	color: #f8eee7;
+	color: #ECF39E;
 	margin-left: 0px;
 	font-weight: bolder;
 }
 
 .btnv:hover{
-	background-color: #f8eee7;
-	color: #49274A;
+	background-color: #ECF39E;
+	color: #132A13;
 	transition: all 0.2s ease-in-out;
 }
 .heading-about{
@@ -266,7 +273,7 @@ input::placeholder {
 }
 .row{
 	width: 100%;
-	background: #49274A;
+	background: #132A13;
 	display: flex;
 	border-radius: 20px;
 }
@@ -315,7 +322,7 @@ input::placeholder {
 }
 img{
 	border-radius: 20px;
-	border: 1px solid #f8eee7;
+	border: 1px solid #ECF39E;
 	opacity: 1;
 }
 .overlay{
@@ -341,11 +348,11 @@ img{
 }
 .text{
 	position: absolute;
-	color: white;
+	color: #ECF39E;
 	font-size: 40px;
 	top: 45%;
 	left: 43%;
-	background-color: goldenrod;
+	background-color: #ECF39E;
 }
 /*destination ends*/
 
@@ -355,18 +362,18 @@ img{
 	justify-content: center;
 }
 .box{
-	background-color:#94618E;
+	background-color:#90A955;
 	border-radius: 10px;
 	padding: 10px 10px;
 	text-align: center;
 	width: 300px;
 	height: 150px;
 	margin: 10px;
-	border: 2px solid #49274A;
+	border: 1px solid #132A13;
 }
 
 .box:hover{
-	border-color: #f8eee7;
+	border-color: #ECF39E;
 }
 
 .box img{
@@ -374,20 +381,19 @@ img{
 }
 
 i{
-	font-size: 4px;
-	color: aliceblue;
-	margin-bottom: 5px;
+	font-size: x-large !important;
+	color: #132A13;
 }
 
 h3{
 	font-size: 20px;
-	color: #f8eee7;
+	color: #ECF39E;
 }
 
 p {
 	padding: 5px;
 	font-size: 10px;
-	color: #f8eee7;
+	color: #ECF39E;
 }
 
 .services_logo{
@@ -420,20 +426,20 @@ p {
 	width: 300px;
 }
 .gallery .g-container .g-row .g-box img{
-	border:2px solid #49274A ;
+	border:1px solid #132A13 ;
 }
 .gallery .g-container .g-row .g-box img:hover{
-	border:2px solid #f8eee7;
+	border:1px solid #ECF39E;
 }
 .gallery .g-container .g-row .g-box span{
 	font-size: 18px;
-	color: wheat;
-	font-family: Calibri Light;
+	color: #ECF39E;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	letter-spacing: 5px;
 }
 .gallery .g-container .g-row .g-box h3{
 	font-size: 12px;
-	color: white;
+	color: #ECF39E;
 }
 /*gallery section ends*/
 
@@ -443,7 +449,7 @@ p {
 	justify-content: space-between;
 }
 .blog_card{
-	background-color: #f8eee7;
+	background-color: #ECF39E;
 	width: 200px;
 	height: 330px;
 	border-radius: 10px;
@@ -457,29 +463,29 @@ p {
 	border-bottom-right-radius: 0px;
 }
 .blog_container h4 b{
-	color: #49274A;
+	color: #132A13;
 	margin-left: 5px;
 	margin-bottom: 0px;
 }
 .blog_container p{
-	color: #49274A;
+	color: #132A13;
 	margin-left: 5px;
 }
 .blogbtn{
 	margin-left: 30%;
-	border: 1px solid #49274A;
+	border: 1px solid #132A13;
 	border-radius: 10px;
-	color: #49274A;
+	color: #132A13;
 	background-color: transparent;
 }
 .blogbtn:hover{
-	background-color: #49274A;
-	color: #f8eee7;
+	background-color: #132A13;
+	color: #ECF39E;
 }
 /* blog section ends */
 /* footer starts */
 footer{
-	background-color: #94618E;
+	background-color: #90A955;
 	bottom: 0;
 	width: 100%;
 	margin: 0;
@@ -500,6 +506,8 @@ i{
 	margin-top: 5px;
 	margin-bottom: 0%;
 	margin-left: 30px;
+	color: #132A13;
+	text-shadow: 2px 3px #ECF39E;
 	font-family: "Bauhaus 93";
 	font-size: 30px;
 	font-weight: lighter;
@@ -524,17 +532,16 @@ i{
 	text-decoration: none;
 }
 
-.box_input-box{
-	list-style-type: none;
-	margin-right: 30px;
-}
 .links1{
-	width: calc(100% / 5 - 10px);
+	width: calc(100% / 6 - 10px);
+	background-color: #132A13;
 	text-decoration: none;
+	margin: 0 auto;
+	border-radius: 20px;
 }
 
 .links2{
-	color: #fff;
+	color: #ECF39E;
   	font-size: 15px;
   	font-weight: 400;
   	margin-bottom: 10px;
@@ -544,33 +551,38 @@ i{
 }
 
 .links2 a{
-	color: #f8eee7;
+	color: #ECF39E;
 	text-decoration: none;
 }
 
 .headline{
 	font-size: 20px;
-	text-decoration: underline;
+	font-weight: bold;
+	color: #132A13;
+	border-radius: 10px;
+	background-color: #ECF39E;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	/* text-decoration: underline; */
 }
 .feedback1{
-	color: #f8eee7;
-	border: 1px solid #f8eee7;
-	border-radius: 18px;
+	border: 1px solid #ECF39E !important;
 	list-style-type: none;
-	outline: none;
+	/* outline: none; */
 }
 
 .feedback2{
-	border: 1px solid #f8eee7;
-	color: #f8eee7;
+	border: 1px solid #ECF39E;
+	color: #ECF39E;
 	width: 100px;
+	cursor: pointer;
 }
 
 .feedback2:hover{
-	background-color: #f8eee7;
-	color: #49274A;
+	background-color: #ECF39E;
+	color: #132A13;
+	transition: all 0.2s ease-in-out;
 }
 li input::placeholder{
-	color: #f8eee7;
+	color: #ECF39E;
 }
 /* footer ends */

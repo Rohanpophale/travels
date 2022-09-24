@@ -17,7 +17,7 @@ export default function Navbar (){
         <a href="#contact us">Contact Us</a>
       </div>
       <div className="book">
-        <Link to="./login"><button className="booknow"><b>Login Here</b></button></Link>
+        <Link to="./login"><button className="booknow"><b>Login/Register</b></button></Link>
       </div>
     </header>
     )

@@ -29,7 +29,7 @@ export default function Home() {
             <span>How many?</span>
             <input type="number" name="place" placeholder="No. of Travelers" className="forminputs" />
           </div>
-          <button className='btnf'>FIND</button>
+          <button className='btnf'>Search</button>
         </form>
       </section>
       {/* booking form section ends */}
@@ -269,7 +269,7 @@ export default function Home() {
         <hr />
         <div className="footerbottom">
           <ul className="links1">
-            <li className="links2 headline" >Menu</li>
+            <li className="links2 headline" >MENU</li>
             <li className="links2"><a href="#Home">Home</a></li>
             <li className="links2"><a href="#about">About Us</a></li>
             <li className="links2"><a href="#destination">Destinations</a></li>
@@ -279,7 +279,7 @@ export default function Home() {
             <li className="links2"><a href="#contact us">Contact Us</a></li>
           </ul>
           <ul className="links1">
-            <li className="links2 headline">Services</li>
+            <li className="links2 headline">SERVICES</li>
             <li className="links2">Worldwide</li>
             <li className="links2">Adventure</li>
             <li className="links2">Food & Drinks</li>
@@ -288,21 +288,21 @@ export default function Home() {
             <li className="links2">24x7 support</li>
           </ul>
           <ul className="links1">
-            <li className="links2 headline">Our Team</li>
+            <li className="links2 headline">OUR TEAM</li>
             <li className="links2"><a href="./meet_the_team.html#team_member1">Pranav Ghasghase</a></li>
             <li className="links2"><a href="./meet_the_team.html#team_member2">Murtaza Burhani</a></li>
             <li className="links2"><a href="./meet_the_team.html#team_member3">Rohan Pophale</a></li>
             <li className="links2"><a href="./meet_the_team.html#team_member4">Harish Yadav</a></li>
           </ul>
           <ul className="links1">
-            <li className="links2 headline">Developer's Desk</li>
+            <li className="links2 headline">DEVELOPER'S DESK</li>
             <li className="links2"><a href="#Home">ghasghasepranav@gmail.com</a></li>
             <li className="links2"><a href="#Home">murtazaburhani62@gmail.com</a></li>
             <li className="links2"><a href="#Home">pophaler763@gmail.com</a></li>
             <li className="links2"><a href="#Home">harishyadav8444@gmail.com</a></li>
           </ul>
-          <ul className="box_input-box">
-            <li className="links2 headline">Subscribe</li>
+          <ul className="links1">
+            <li className="links2 headline">SUBSCRIBE</li>
             <li><input type="text" placeholder="Your Email" className="feedback1" /></li>
             <li><input type="button" value="Subscribe" className="feedback2" /></li>
           </ul>
