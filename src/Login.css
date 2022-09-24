@@ -35,10 +35,12 @@ body{
 
 ul{
     list-style-type: none;
+    padding: 10px;
 }
 input[type=text], input[type=number], input[type=email], input[type=password]{
     margin-bottom: 10px;
     border-radius: 20px;
+    padding-left: 10px;
     height: 30px;
     width: 90%;
     background-color: #49274a;
@@ -49,10 +51,12 @@ input[type=text], input[type=number], input[type=email], input[type=password]{
 
 ::placeholder{
     color: #f8eee7;
+    opacity: 0.5;
 }
 
 input[type=submit]{
-    margin-left: 82px;
+    margin-top: 10px;
+    
     border-radius: 20px;
     border-color: #49274a;
     outline: none;
@@ -65,7 +69,7 @@ input[type=submit]{
 input[type=submit]:hover{
     background-color: #49274a;
     color: #f8eee7;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .sliding-btn{

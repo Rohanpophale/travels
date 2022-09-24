@@ -1,7 +1,8 @@
 body{
-	background: #49274A;
+	background: #49274A !important;
 	margin: 0;
 	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html {
@@ -32,24 +33,21 @@ section{
 	color: #f8eee7;
 }
 
-.nav{
+/* .nav{
 	margin-left: 15px;
-}
+} */
 
 .nav a{
 	text-decoration: none;
-	color: #49274A;
+	color: white;
 	transition: 0.3s ease;
 	margin-left: 50px;
-	font-family: Berlin Sans FB Demi;
-	font-size: 18px;
+	font-size: 20px;
 }
-.nav a:hover{
-	color: #f8eee7;
-}
+
 .book{
 	text-decoration: none;
-	margin-right: 50px;
+	margin-right: 30px;
 }
 .booknow{
 	width: 130px;
@@ -63,6 +61,7 @@ section{
 .booknow:hover{
 	background: #f8eee7;
 	color: #49274A;
+	transition: all 0.2s ease-in-out;
 }
 /* navbar ends */
 .home{
@@ -87,14 +86,13 @@ section{
 span{
 	font-weight: bolder;
 	color: #f8eee7;
-	font-weight: bolder;
-	font-size: 30px;
+	font-size: 20px;
 	text-align: center;
 }
 h1{
 	color: #f8eee7;
 	font-weight: bolder;
-	font-size: 40px;
+	font-size: 30px;
 }
 
 .btni{
@@ -110,21 +108,7 @@ h1{
 .btni:hover{
 	background: #f8eee7;
 	color: #49274A;
-}
-
-.btnf{
-	width: 130px;
-	height: 50px;
-	background: transparent;
-	border: 1px solid #94618E;
-	border-radius: 30px;
-	color: #49274A;
-	font-weight: bolder;
-}
-
-.btnf:hover{
-	background: #49274A;
-	color: #f8eee7;
+	transition: all 0.2s ease-in-out;
 }
 
 /*book form section starts*/
@@ -144,7 +128,7 @@ h1{
 
 form{
 	display: flex;
-	align-items: flex-end;
+	/* align-items: flex-end; */
 	flex-wrap: wrap;
 }
 
@@ -155,48 +139,65 @@ form{
 .inputBox span{
 	font-size: 15px;
 	color: #49274A;
-	margin-left: 10px;
+	/* margin-left: 10px; */
 }
 
 input{
-	background: none;
-	border: 1px solid #94618E;
+	background: transparent !important;
+	border: 1px solid #49274A !important;
 	height: 30px;
 	border-radius: 20px;
 	font-size: 13px;
 	width: 210px;
-	margin-left: 10px;
-	margin-top: 7px;
-	color: #49274A;
+	margin-top: 10px;
+	padding-left: 10px;
+	color: #49274A !important;
 	
 }
-input::placeholder{
+
+input::placeholder {
 	color: #49274A;
+	opacity: 0.7;
 }
+
 
 .btn{
 	
 	margin-left: 20px;
 }
-.forminputs{
+/* .forminputs{
 	color: #49274A;
+} */
+
+.btnf{
+	width: 130px;
+	height: 50px;
+	margin: auto;
+	margin-left: 30px;
+	background: transparent;
+	border: 1px solid #94618E;
+	border-radius: 30px;
+	color: #49274A;
+	font-weight: bolder;
+}
+
+.btnf:hover{
+	background: #49274A;
+	color: #f8eee7;
+	transition: all 0.2s ease-in-out;
 }
 /*book form section ends*/
 
 /*about section starts*/
-.about{
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: center;
-}
+/* .about{
+	display: flex; */
+	/* align-items: center; */
+	/* flex-wrap: wrap; */
+	/* gap: 20px; */
+	/* justify-content: center;
+} */
 
 .video-container{
-	display: flex;
-}
-
-.video-container-2{
 	display: flex;
 }
 
@@ -218,7 +219,7 @@ input::placeholder{
 }
 
 .aContent h3{
-	margin-top: -10px;
+	margin-top: 0;
 	font-size: 50px;
 	font-family: Calibri;
 	color: #f8eee7;
@@ -238,6 +239,7 @@ input::placeholder{
 .btnv:hover{
 	background-color: #f8eee7;
 	color: #49274A;
+	transition: all 0.2s ease-in-out;
 }
 .heading-about{
 	text-align: center;
@@ -544,6 +546,7 @@ i{
 
 .headline{
 	font-size: 20px;
+	text-decoration: underline;
 }
 .feedback1{
 	color: #f8eee7;
