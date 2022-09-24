@@ -8,6 +8,7 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import Destination from './Components/Destination';
 import Payment from './Components/Payment';
+import Navbar from './Components/Navbar';
 
 
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
         </Routes>

@@ -1,8 +1,33 @@
 import React from 'react';
 import '../Login.css';
-// import '../LoginJS';
-import { Helmet } from 'react-helmet';
+
 export default function Login() {
+
+    const login = () => {
+        const signin = document.querySelector(".signin")
+        const movebtn = document.querySelector(".movebtn")
+        const signinjs = document.querySelector(".signinjs")
+        const signupjs = document.querySelector(".signupjs")
+        signin.addEventListener("click", () => {
+            movebtn.classList.remove("rightbtn");
+            signinjs.classList.add("signinform");
+            signupjs.classList.remove("signupform");
+            movebtn.innerHTML = "Login";
+        })
+    }
+
+    const register = () => {
+        const signup = document.querySelector(".signup")
+        const movebtn = document.querySelector(".movebtn")
+        const signinjs = document.querySelector(".signinjs")
+        const signupjs = document.querySelector(".signupjs")
+        signup.addEventListener("click", () => {
+            movebtn.classList.add("rightbtn");
+            signinjs.classList.remove("signinform");
+            signupjs.classList.add("signupform");
+            movebtn.innerHTML = "Register";
+        })
+    }
 
     return (
         <>
@@ -12,8 +37,8 @@ export default function Login() {
                         <h2>Login / Register</h2>
                     </div>
                     <div class="sliding-btn">
-                        <button class="actionbtn signin">Login</button>
-                        <button class="actionbtn signup">Register</button>
+                        <button class="actionbtn signin" onClick={login}>Login</button>
+                        <button class="actionbtn signup" onClick={register}>Register</button>
                         <button class="movebtn">Login</button>
                     </div>
                     <div class="formpart">

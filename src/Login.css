@@ -1,19 +1,19 @@
 body{
     align-items: center;
-    background-color: #94618e;
+    /* background-color: #94618e; */
 }
 .main{
-    margin-top: 50px;
     display: flex;
     justify-content: center;
     color: transparent;
 }
 .main2{
     align-items: center;
+    margin: 120px auto;
     border: none;
     background-color: #f4decb;
     padding: 20px;
-    width: 310px;
+    width: 500px;
     border-radius: 20px;
 }
 
@@ -56,12 +56,11 @@ input[type=text], input[type=number], input[type=email], input[type=password]{
 
 input[type=submit]{
     margin-top: 10px;
-    
     border-radius: 20px;
     border-color: #49274a;
     outline: none;
     width: 80px;
-    height: 30px;
+    /* height: 30px; */
     background-color: transparent;
     color: #49274a;
     cursor: pointer; 
@@ -101,6 +100,7 @@ input[type=submit]:hover{
     background-color: #94618e;
     border-radius: 20px;
     color: white;
+    cursor: pointer;
 }
 
 .rightbtn{
