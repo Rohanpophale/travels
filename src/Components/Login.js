@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import '../Login.css';
 import axios from 'axios';
+
 export default function Login() {
 
     const [name, setName] = useState("")
@@ -55,7 +56,7 @@ export default function Login() {
             }
 
             axios.post('http://localhost:4000/app/signup', newUser)
-                .then(response => console.log(response.data))
+                .then(response => window.alert(response.data.message))
             setName("")
             setMobile("")
             setAddress("")
@@ -63,8 +64,6 @@ export default function Login() {
             setUsername("")
             setPassword("")
             setPass("")
-            window.alert('User Registration Successful!')
-
         }
 
     }
@@ -72,7 +71,15 @@ export default function Login() {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        
+        const user = {
+            username: username,
+            password: password
+        }
+
+        axios.post('http://localhost:4000/app/signin', user)
+            .then(response => window.alert(response.data.message))
+        setUsername("")
+        setPassword("")
     }
 
     return (
@@ -110,9 +117,6 @@ export default function Login() {
                     </div>
                 </div>
             </div>
-            {/* <Helmet>
-                <script src='../LoginJS.js'></script>
-            </Helmet> */}
         </>
     )
 
