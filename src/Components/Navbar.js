@@ -8,7 +8,7 @@ export default function Navbar (){
         <h1>Maya Travels</h1>
       </div>
       <div className="nav">
-        <a href="#Home">Home</a>
+        <Link to="/">Home</Link>
         <a href="#about">About Us</a>
         <a href="#destination">Destinations</a>
         <a href="#service">Services</a>

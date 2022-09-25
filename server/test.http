@@ -1,0 +1,11 @@
+POST  http://localhost:4000/app/signup
+Content-Type: application/json
+
+{
+    "name": "Murtaza Burhani",
+    "mobile": "9685352953",
+    "address": "Kandivali (W)",
+    "email": "murtazaburhani62@gmail.com",
+    "username": "murtaza_110",
+    "password": "mbhamid7653"
+}
