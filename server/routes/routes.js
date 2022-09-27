@@ -9,11 +9,11 @@ router.post('/signin', async (request, response) => {
 
     const { username, password } = request.body
 
-    // const saltPassword = await bcrypt.genSalt(10)
-    // const securePassword = await bcrypt.hash(request.body.password, 10)
-    signUpTemplateCopy.findOne({ username: username }, (error, user) => {
+    const user = await signUpTemplateCopy.findOne({ username: username })
+
         if (user) {
-            if (password === user.password) {
+            const pass = await bcrypt.compare(password, user.password)
+            if (pass) {
                 response.send({ message: user.name + " Logged In Successfully!" })
             }
             else {
@@ -24,14 +24,12 @@ router.post('/signin', async (request, response) => {
             response.send({ message: username + " is not a Registered User!" })
         }
     })
-})
 
 router.post('/signup', async (request, response) => {
-
-    // const saltPassword = await bcrypt.genSalt(10)
-    // const securePassword = await bcrypt.hash(request.body.password, 10)
-
+    
     const { name, mobile, address, email, username, password } = request.body
+    
+    const securePassword = await bcrypt.hash(password, 10)
 
     signUpTemplateCopy.findOne({ email: email } || { username: username }, (error, user) => {
         if (user) {
@@ -44,7 +42,7 @@ router.post('/signup', async (request, response) => {
                 address: request.body.address,
                 email: request.body.email,
                 username: request.body.username,
-                password: request.body.password
+                password: securePassword
             })
             signedUpUser.save()
                 .then(data => {
