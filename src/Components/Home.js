@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Home.css';
+import img6 from '../media/IMAGES/6.jpg'
 
 export default function Home() {
   return (
@@ -61,7 +62,7 @@ export default function Home() {
         <div className="container-text-center">
           {/* Stack the columns on mobile by making one full-width and the other half-width */}
           <div className="row">
-            <div className="col-md-8"><a href="./destination_1.html"><img alt="" src="./media/IMAGES/6.jpg" width="100%" /><div className="overlay"><div className="text">Kerala</div></div></a></div>
+            <div className="col-md-8"><a href="./destination_1.html"><img alt="" src={img6} width="100%" /><div className="overlay"><div className="text">Kerala</div></div></a></div>
             <div className="col-6-col-md-4"><a href="./destination_1.html"><img alt="" src="./media/IMAGES/1.jpg" width="100%" height="100%" /><div className="overlay"><div className="text">Kerala</div></div></a></div>
           </div>
 
