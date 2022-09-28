@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 
-const secretkey = 'iamironmaniamironmaniamironmani'
-
 const signUpTemplate = new mongoose.Schema({
     name: {
         type: String,
@@ -40,7 +38,7 @@ const signUpTemplate = new mongoose.Schema({
 
 signUpTemplate.methods.generateAuthToken = async function () {
     try {
-        let token = jwt.sign({ _id: this._id }, secretkey, {
+        let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY, {
             expiresIn: "1d"
         })
 
