@@ -76,8 +76,14 @@ export default function Login() {
             password: password
         }
 
-        axios.post('http://localhost:4000/app/signin', user)
+        axios.post('http://localhost:4000/app/signin', user, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            withCredentials: true
+        })
             .then(response => window.alert(response.data.message))
+
         setUsername("")
         setPassword("")
     }

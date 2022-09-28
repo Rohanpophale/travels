@@ -3,7 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
 const signUpTemplateCopy = require('../models/SignUpModels')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 router.post('/signin', async (request, response) => {
 
@@ -11,25 +11,34 @@ router.post('/signin', async (request, response) => {
 
     const user = await signUpTemplateCopy.findOne({ username: username })
 
-        if (user) {
-            const pass = await bcrypt.compare(password, user.password)
-            if (pass) {
-                response.send({ message: user.name + " Logged In Successfully!" })
+    if (user) {
+        const pass = await bcrypt.compare(password, user.password)
+        if (pass) {
+            const token = await user.generateAuthToken()
+            response.cookie("usercookie", token, {
+                expires: new Date(Date.now() + 9000000),
+                httpOnly: true
+            })
+            const result = {
+                user,
+                token
             }
-            else {
-                response.send({ message: "Incorrect Password!" })
-            }
+            response.send({ message: user.name + " Logged In Successfully!", status:201, result })
         }
         else {
-            response.send({ message: username + " is not a Registered User!" })
+            response.send({ message: "Incorrect Password!" })
         }
-    })
+    }
+    else {
+        response.send({ message: username + " is not a Registered User!" })
+    }
+})
 
 router.post('/signup', async (request, response) => {
-    
+
     const { name, mobile, address, email, username, password } = request.body
-    
-    const securePassword = await bcrypt.hash(password, 10)
+
+        const securePassword = await bcrypt.hash(password, 10)
 
     signUpTemplateCopy.findOne({ email: email } || { username: username }, (error, user) => {
         if (user) {
