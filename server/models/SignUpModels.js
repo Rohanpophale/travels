@@ -49,4 +49,5 @@ signUpTemplate.methods.generateAuthToken = async function () {
     }
 }
 
-module.exports = mongoose.model('registration', signUpTemplate)
+const User = mongoose.model('registration', signUpTemplate)
+module.exports = User

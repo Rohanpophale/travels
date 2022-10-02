@@ -9,12 +9,14 @@ export default function Navbar (){
       </div>
       <div className="nav">
         <Link to="/">Home</Link>
+        <Link to="/dashboard">Dashboard</Link>
         <a href="#about">About Us</a>
         <a href="#destination">Destinations</a>
         <a href="#service">Services</a>
         <a href="#gallery">Gallery</a>
         <a href="#blogs">Blogs</a>
         <a href="#contact us">Contact Us</a>
+        <Link to="/logout">Logout</Link>
       </div>
       <div className="book">
         <Link to="./login"><button className="booknow"><b>Login/Register</b></button></Link>

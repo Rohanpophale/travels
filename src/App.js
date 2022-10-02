@@ -9,6 +9,8 @@ import Login from './Components/Login';
 import Destination from './Components/Destination';
 import Payment from './Components/Payment';
 import Navbar from './Components/Navbar';
+import Dashboard from './Components/Dashboard';
+import Logout from './Components/Logout';
 
 
 
@@ -22,6 +24,12 @@ function App() {
         </Routes>
         <Routes>
           <Route exact path="/login" element={<Login />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/logout" element={<Logout />}></Route>
         </Routes>
         <Routes>
           <Route exact path="/destination" element={<Destination />}></Route>

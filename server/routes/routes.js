@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const router = express.Router()
 const signUpTemplateCopy = require('../models/SignUpModels')
 const bcrypt = require('bcryptjs')
+const auth = require('../middleware/auth')
 
 router.post('/signin', async (request, response) => {
 
@@ -23,7 +24,7 @@ router.post('/signin', async (request, response) => {
                 user,
                 token
             }
-            response.send({ message: user.name + " Logged In Successfully!", status:201, result })
+            response.send({ message: user.name + " Logged In Successfully!", status: 201, result })
         }
         else {
             response.send({ message: "Incorrect Password!" })
@@ -38,7 +39,7 @@ router.post('/signup', async (request, response) => {
 
     const { name, mobile, address, email, username, password } = request.body
 
-        const securePassword = await bcrypt.hash(password, 10)
+    const securePassword = await bcrypt.hash(password, 10)
 
     signUpTemplateCopy.findOne({ email: email } || { username: username }, (error, user) => {
         if (user) {
@@ -65,5 +66,12 @@ router.post('/signup', async (request, response) => {
 
 })
 
+router.get('/dashboard', auth, (request, response) => {
+    response.send(request.rootUser)
+})
+
+router.get('/logout', (request, response) => {
+    response.clearCookie('usercookie', { path: '/' })
+})
 
 module.exports = router
