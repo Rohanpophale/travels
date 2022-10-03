@@ -76,7 +76,7 @@ export default function Home() {
           {/* Columns are always 50% wide, on mobile and desktop */}
           <div className="row">
             <div className="col-6"><a href="#Home"><img alt="" src="./media/IMAGES/22.jpg" width="100%" /></a></div>
-            <div className="col-7"><a href="#Home"><img alt="" src="./media/IMAGES/7.jpg" width="100%" /></a></div>
+            <div className="col-6"><a href="#Home"><img alt="" src="./media/IMAGES/7.jpg" width="100%" /></a></div>
           </div>
 
           <div className="row">
@@ -94,7 +94,7 @@ export default function Home() {
           {/* Columns are always 50% wide, on mobile and desktop */}
           <div className="row">
             <div className="col-6"><a href="#Home"><img alt="" src="./media/IMAGES/12.jpg" width="100%" /></a></div>
-            <div className="col-7"><a href="#Home"><img alt="" src="./media/IMAGES/15.jpg" width="100%" /></a></div>
+            <div className="col-6"><a href="#Home"><img alt="" src="./media/IMAGES/15.jpg" width="100%" /></a></div>
           </div>
 
         </div>

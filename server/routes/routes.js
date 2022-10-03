@@ -71,7 +71,8 @@ router.get('/dashboard', auth, (request, response) => {
 })
 
 router.get('/logout', (request, response) => {
-    response.clearCookie('usercookie', { path: '/' })
+    response.clearCookie('usercookie', {path: '/'})
+    response.status(200).send('User logged out!')
 })
 
 module.exports = router

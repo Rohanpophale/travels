@@ -18,7 +18,7 @@ const auth = async (request, response, next) => {
         next();
     } catch (error) {
         response.status(401).send('Unauthorized: No token provided')
-        console.log(error)
+        // console.log(error)
     }
 }
 
