@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home';
 import Login from './Components/Login';
-import Destination from './Components/Destination';
+import Destinations from './Components/Destinations';
 import Payment from './Components/Payment';
 import Navbar from './Components/Navbar';
 import Dashboard from './Components/Dashboard';
@@ -32,7 +32,7 @@ function App() {
           <Route path="/logout" element={<Logout />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/destination" element={<Destination />}></Route>
+          <Route exact path="/destinations" element={<Destinations />}></Route>
         </Routes>
         <Routes>
           <Route exact path="/payment" element={<Payment />}></Route>

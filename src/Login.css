@@ -64,7 +64,9 @@ input[type="password"] {
   opacity: 0.5;
 }
 
-input[type="submit"] {
+input[type="submit"],
+input[type="reset"]
+ {
   margin-top: 10px;
   font-size: large;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -75,9 +77,12 @@ input[type="submit"] {
   width: 90px;
   background-color: transparent;
   color: #132a13;
+  margin: 10px;
   cursor: pointer;
 }
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+input[type="reset"]:hover
+ {
   background-color: #132a13;
   color: #ecf39e;
   transition: all 0.2s ease-in-out;

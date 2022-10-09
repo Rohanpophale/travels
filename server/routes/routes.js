@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
 const signUpTemplateCopy = require('../models/SignUpModels')
+const destinations = require('../models/destinationModels')
 const bcrypt = require('bcryptjs')
 const auth = require('../middleware/auth')
 
@@ -73,6 +74,14 @@ router.get('/dashboard', auth, (request, response) => {
 router.get('/logout', (request, response) => {
     response.clearCookie('usercookie', {path: '/'})
     response.status(200).send('User logged out!')
+})
+
+router.get('/destinations', (request, response) => {
+    destinations.find({}, (err, data) => {
+        if(err) console.log(err)
+        // console.log(data)
+        response.send(data)
+    })
 })
 
 module.exports = router

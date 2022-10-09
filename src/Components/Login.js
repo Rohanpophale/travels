@@ -9,6 +9,7 @@ export default function Login() {
     const [mobile, setMobile] = useState("")
     const [address, setAddress] = useState("")
     const [email, setEmail] = useState("")
+    // const [photo, setPhoto] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [pass, setPass] = useState("")
@@ -57,13 +58,7 @@ export default function Login() {
 
             axios.post('http://localhost:4000/app/signup', newUser)
                 .then(response => window.alert(response.data.message))
-            setName("")
-            setMobile("")
-            setAddress("")
-            setEmail("")
-            setUsername("")
-            setPassword("")
-            setPass("")
+            handleClear()
         }
 
     }
@@ -86,6 +81,16 @@ export default function Login() {
 
         setUsername("")
         setPassword("")
+    }
+
+    const handleClear = () => {
+        setName("")
+        setMobile("")
+        setAddress("")
+        setEmail("")
+        setUsername("")
+        setPassword("")
+        setPass("")
     }
 
     return (
@@ -117,7 +122,8 @@ export default function Login() {
                                 <li><input type="text" placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} value={username} required /></li>
                                 <li><input type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password} required /></li>
                                 <li><input type="password" placeholder="Re-enter Password" onChange={(e) => { setPass(e.target.value) }} value={pass} required /></li>
-                                <li><input type="submit" value="Register" className="submit" /></li>
+                                <li><input type="submit" value="Register" className="submit" />
+                                <input type="reset" value="Clear" onClick={handleClear} className='submit'></input></li>
                             </ul>
                         </form>
                     </div>
