@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Payment from './Payment'
 
 export default function Destination(props) {
 
@@ -25,6 +27,7 @@ export default function Destination(props) {
             <h4 className="card-title" style={{ "color": "#132a13", "fontWeight": "bold" }}>{props.name}</h4>
             <p className="card-text" style={descStyle}>{props.desc}</p>
             <p className="card-text" style={priceStyle}>Price: Rs. {props.price}/-</p>
+            <Link to='/payment' class="btn btn-success" style={{ "backgroundColor": "#132a13" }}>Book Now</Link>
           </div>
         </div>
       </div>

@@ -99,7 +99,6 @@ export default function Dashboard() {
                     </div>
                 </div>
             </section>
-            <form method="GET"></form>
         </>
 
     )

@@ -11,7 +11,7 @@ export default function Navbar (){
         <Link to="/">Home</Link>
         <Link to="/dashboard">Dashboard</Link>
         <a href="#about">About Us</a>
-        <a href="#destination">Destinations</a>
+        <Link to="/destinations">Destinations</Link>
         <a href="#service">Services</a>
         <a href="#gallery">Gallery</a>
         <a href="#blogs">Blogs</a>
