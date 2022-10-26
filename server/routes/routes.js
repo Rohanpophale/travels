@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const router = express.Router()
 const signUpTemplateCopy = require('../models/SignUpModels')
 const destinations = require('../models/destinationModels')
+const PaytmChecksum = require('../PaytmChecksum')
 const bcrypt = require('bcryptjs')
 const auth = require('../middleware/auth')
 
@@ -75,14 +76,36 @@ router.get('/payment', auth, (request, response) => {
     response.send(request.rootUser)
 })
 
+router.post('/payment', (request, response) => {
+    /* import checksum generation utility */
+    var PaytmChecksum = require("./PaytmChecksum");
+
+    var paytmParams = {};
+
+    /* initialize an array */
+    paytmParams["MID"] = "YOUR_MID_HERE";
+    paytmParams["ORDERID"] = "YOUR_ORDER_ID_HERE";
+
+    /**
+    * Generate checksum by parameters we have
+    * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
+    */
+    var paytmChecksum = PaytmChecksum.generateSignature(paytmParams, "YOUR_MERCHANT_KEY");
+    paytmChecksum.then(function (checksum) {
+        console.log("generateSignature Returns: " + checksum);
+    }).catch(function (error) {
+        console.log(error);
+    });
+})
+
 router.get('/logout', (request, response) => {
-    response.clearCookie('usercookie', {path: '/'})
+    response.clearCookie('usercookie', { path: '/' })
     response.status(200).send('User logged out!')
 })
 
 router.get('/destinations', (request, response) => {
     destinations.find({}, (err, data) => {
-        if(err) console.log(err)
+        if (err) console.log(err)
         // console.log(data)
         response.send(data)
     })
