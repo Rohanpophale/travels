@@ -4,9 +4,13 @@ const mongoose = require('mongoose')
 const router = express.Router()
 const signUpTemplateCopy = require('../models/SignUpModels')
 const destinations = require('../models/destinationModels')
-const PaytmChecksum = require('../PaytmChecksum')
 const bcrypt = require('bcryptjs')
 const auth = require('../middleware/auth')
+const formidable = require('formidable')
+const { v4: uuidv4 } = require('uuid')
+const https = require('https')
+require('dotenv').config()
+const PaytmChecksum = require('../PaytmChecksum')
 
 router.post('/signin', async (request, response) => {
 
@@ -76,23 +80,113 @@ router.get('/payment', auth, (request, response) => {
     response.send(request.rootUser)
 })
 
-router.post('/payment', (request, response) => {
-    /* import checksum generation utility */
-    var PaytmChecksum = require("./PaytmChecksum");
+router.post('/callback', (req, res) => {
 
-    var paytmParams = {};
+    const form = new formidable.IncomingForm();
+
+    form.parse(req, (err, fields, file) => {
+
+        paytmChecksum = fields.CHECKSUMHASH;
+        delete fields.CHECKSUMHASH;
+
+        var isVerifySignature = PaytmChecksum.verifySignature(fields, process.env.PAYTM_MERCHANT_KEY, paytmChecksum);
+        if (isVerifySignature) {
+
+            var paytmParams = {};
+            paytmParams["MID"] = fields.MID;
+            paytmParams["ORDERID"] = fields.ORDERID;
+
+            /*
+            * Generate checksum by parameters we have
+            * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
+            */
+            PaytmChecksum.generateSignature(paytmParams, process.env.PAYTM_MERCHANT_KEY).then(function (checksum) {
+
+                paytmParams["CHECKSUMHASH"] = checksum;
+
+                var post_data = JSON.stringify(paytmParams);
+
+                var options = {
+
+                    /* for Staging */
+                    hostname: 'securegw-stage.paytm.in',
+
+                    /* for Production */
+                    // hostname: 'securegw.paytm.in',
+
+                    port: 443,
+                    path: '/order/status',
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Content-Length': post_data.length
+                    }
+                };
+
+                var response = "";
+                var post_req = https.request(options, function (post_res) {
+                    post_res.on('data', function (chunk) {
+                        response += chunk;
+                    });
+
+                    post_res.on('end', function () {
+                        let result = JSON.parse(response)
+                        if (result.STATUS === 'TXN_SUCCESS') {
+                            //store in db
+                            db.collection('payments').doc('mPDd5z0pNiInbSIIotfj').update({ paymentHistory: firebase.firestore.FieldValue.arrayUnion(result) })
+                                .then(() => console.log("Update success"))
+                                .catch(() => console.log("Unable to update"))
+                        }
+
+                        res.redirect(`http://localhost:3000/status/${result.ORDERID}`)
+
+                    });
+                });
+
+                post_req.write(post_data);
+                post_req.end();
+            });
+
+        } else {
+            console.log("Checksum Mismatched");
+        }
+
+    })
+
+})
+
+router.post('/payment', (request, response) => {
+
+    const { amount, email } = req.body;
+
+    /* import checksum generation utility */
+    const totalAmount = JSON.stringify(amount);
+
+    var params = {};
 
     /* initialize an array */
-    paytmParams["MID"] = "YOUR_MID_HERE";
-    paytmParams["ORDERID"] = "YOUR_ORDER_ID_HERE";
+    params['MID'] = process.env.PAYTM_MID,
+        params['WEBSITE'] = process.env.PAYTM_WEBSITE,
+        params['CHANNEL_ID'] = process.env.PAYTM_CHANNEL_ID,
+        params['INDUSTRY_TYPE_ID'] = process.env.PAYTM_INDUSTRY_TYPE_ID,
+        params['ORDER_ID'] = uuidv4(),
+        params['CUST_ID'] = process.env.PAYTM_CUST_ID,
+        params['TXN_AMOUNT'] = totalAmount,
+        params['CALLBACK_URL'] = 'http://localhost:4000/app/callback',
+        params['EMAIL'] = email,
+        params['MOBILE_NO'] = '9876543210'
 
     /**
     * Generate checksum by parameters we have
     * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
     */
-    var paytmChecksum = PaytmChecksum.generateSignature(paytmParams, "YOUR_MERCHANT_KEY");
+    var paytmChecksum = PaytmChecksum.generateSignature(params, process.env.PAYTM_MERCHANT_KEY);
     paytmChecksum.then(function (checksum) {
-        console.log("generateSignature Returns: " + checksum);
+        let paytmParams = {
+            ...params,
+            "CHECKSUMHASH": checksum
+        }
+        res.json(paytmParams)
     }).catch(function (error) {
         console.log(error);
     });
