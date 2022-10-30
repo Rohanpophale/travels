@@ -22,7 +22,7 @@ export default function Destinations() {
     })
 
     return (
-        <div className='container' style={{"margin-top": "120px"}} >
+        <div className='container' style={{"marginTop": "120px"}} >
             <h1 className='my-3'><u>Our Destinations</u></h1>
             <div className="row">
                 {destinations.map((dest) => {

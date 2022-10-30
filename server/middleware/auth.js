@@ -6,7 +6,7 @@ const auth = async (request, response, next) => {
     try {
         const token = request.cookies.usercookie;
         const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-        console.log(verifyUser);
+        // console.log(verifyUser);
         const rootUser = await Register.findOne({_id: verifyUser._id, "tokens.token": token })
 
         if(!rootUser) {

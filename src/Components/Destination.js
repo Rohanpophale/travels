@@ -17,6 +17,10 @@ export default function Destination(props) {
     "textAlign": "left"
   }
 
+  const callPaymentComponent = (e) => {
+    e.preventDefault()
+    return <Payment name={props.name} />
+  }
 
   return (
     <>
@@ -27,7 +31,7 @@ export default function Destination(props) {
             <h4 className="card-title" style={{ "color": "#132a13", "fontWeight": "bold" }}>{props.name}</h4>
             <p className="card-text" style={descStyle}>{props.desc}</p>
             <p className="card-text" style={priceStyle}>Price: Rs. {props.price}/-</p>
-            <Link to='/payment' class="btn btn-success" style={{ "backgroundColor": "#132a13" }}>Book Now</Link>
+            <button type='submit' onClick={callPaymentComponent} className="btn btn-success" style={{ "backgroundColor": "#132a13" }}>Book Now</button>
           </div>
         </div>
       </div>
